@@ -1,24 +1,32 @@
+package model;
+
+import model.MasterControl;
+import view.Panel;
 
 import java.util.*;
 
+import javax.swing.JTextField;
+
+
+
 public class Output implements IOutput {
 
-   
-    public Output() {
+    Panel panel;
+    JTextField speedBox = panel.getSpeedBox();
+
+    public Output(long time, Panel panel) {
+        printPerformance(time);
     }
 
     @Override
-    public void print(ArrayList<String> csStmt) {
-        // TODO implement here
-        
+    public void print() {
+                
     }
 
-
     @Override
-    public int printPerformance(int time) {
-        return time;
-        // TODO Auto-generated method stub
-        
+    public void printPerformance(long time) {
+        String timeString = String.valueOf(time);
+        speedBox.setText(timeString);
     }
 
 }

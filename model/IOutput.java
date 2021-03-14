@@ -1,12 +1,10 @@
 
 import java.util.*;
 
-
+import view.Panel;
 public interface IOutput {
 
-    public void print(ArrayList<String> csStmt);
-    public int printPerformance(int time);    
-
-    
+    public void print();
+    public void printPerformance(long time);       
 
 }

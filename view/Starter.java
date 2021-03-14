@@ -10,7 +10,6 @@ import javax.swing.JFrame;
 public class Starter {
     
     private Panel panel;
-    private MasterControl master;
 
     public Starter() {
         startGui();
@@ -33,10 +32,10 @@ public class Starter {
 
     }
 
-    public void start(ArrayList<String> inputStmt) {
-        // TODO implement here
-        return null;
-    }
+    // public void start(ArrayList<String> inputStmt) {
+    //     // TODO implement here
+    //     return null;
+    // }
     
 
 

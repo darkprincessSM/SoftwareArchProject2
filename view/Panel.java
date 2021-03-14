@@ -5,10 +5,12 @@ import java.util.*;
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.*;
+
+import model.MasterControl;
 public class Panel {
 
     private JFrame window;
-
+   
     private JTextArea inputArea = new JTextArea(5, 10);
     private JTextArea intermediateArea = new JTextArea(5, 10);
     private JTextArea outputArea = new JTextArea(5, 10);
@@ -19,7 +21,6 @@ public class Panel {
     private JRadioButton shiftButton = new JRadioButton("Circular Shift");
     private JButton inputButton = new JButton("Enter");
     private JButton clearButton = new JButton("Clear");
-    
     
     public Panel(JFrame window) {
         this.window = window;
@@ -167,5 +168,24 @@ public class Panel {
        return noiseArea;
     }
 
+    public JTextField getSpeedBox() {
+        return speedBox;
+    }
+
+    public JRadioButton getShiftButton() {
+        return shiftButton;
+    }
+
+    public JRadioButton getAlphaButton() {
+        return alphaButton;
+    }
+
+    public JButton getClearButton() {
+        return clearButton;
+    }
+
+    public JButton getInputButton() {
+        return inputButton;
+    }
     
 }

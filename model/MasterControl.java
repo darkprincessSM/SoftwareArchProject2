@@ -4,11 +4,10 @@ import java.util.*;
 import view.Panel;
 public class MasterControl {
 
-    public MasterControl(Panel panel) {
-        
-    }
+    long startTime = 0;
+    long endTime = 0;
+    long speedTime = 0;
 
-    
     private IData data;
     private IInput input;
     private ICircularShift circularShit;
@@ -18,9 +17,20 @@ public class MasterControl {
     private IOutput output;
     public Panel panel;
 
+    public MasterControl(Panel panel) {
+        masterRun();
+    }
+
+ 
+
     public void masterRun() {
-        // TODO implement here
-        return null;
+        startTime = System.currentTimeMillis();
+        //input = new Input();
+
+        System.out.println("how fast is this?");
+        endTime = System.currentTimeMillis();
+        speedTime = endTime - startTime;   
+        output = new Output(speedTime, panel);
     }
 
 }
