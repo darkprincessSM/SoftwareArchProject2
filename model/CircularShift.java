@@ -13,7 +13,7 @@ public class CircularShift implements ICircularShift {
         String oldLine = "";
         String[] parts;
         for (int i = 0; i < inputStmt.size(); i++) {
-            shiftedStmt.add(inputSstmt.get(i));
+            shiftedStmt.add(inputStmt.get(i));
             oldLine = inputStmt.get(i);
             for (int j = 0; j < inputStmt.get(i).split(" ").length - 1; j++) {
                 parts = oldLine.split(" ");
