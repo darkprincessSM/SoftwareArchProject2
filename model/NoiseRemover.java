@@ -1,22 +1,36 @@
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.*;
 
-
 public class NoiseRemover implements INoiseRemover {
+
+    private ArrayList<String> noise;
 
     public NoiseRemover() {
     }
 
     @Override
-    public void readNoise(ArrayList<String> csStmt) {
-        // TODO Auto-generated method stub
-        
+    public void readNoise(ArrayList<String> noise) {
+        this.noise = noise;
+
     }
 
     @Override
     public ArrayList<String> removeNoise(ArrayList<String> csStmt) {
-        // TODO Auto-generated method stub
-        return null;
+        ArrayList<String> removeLines = new ArrayList<String>();
+
+        String firstWord;
+        for (var s : csStmt) {
+            firstWord = s.substring(0, s.indexOf(" "));
+            for (var w : noise) {
+                if (firstWord.toUpperCase().equals(w))
+                    removeLines.add(s);
+            }
+        }
+        csStmt.removeAll(removeLines);
+        return csStmt;
     }
+}
 
 }

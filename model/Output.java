@@ -2,12 +2,8 @@ package model;
 
 import model.MasterControl;
 import view.Panel;
-
 import java.util.*;
-
 import javax.swing.JTextField;
-
-
 
 public class Output implements IOutput {
 
@@ -20,7 +16,7 @@ public class Output implements IOutput {
 
     @Override
     public void print() {
-                
+
     }
 
     @Override
