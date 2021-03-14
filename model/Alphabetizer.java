@@ -1,4 +1,6 @@
 
+import java.text.ParseException;
+import java.text.RuleBasedCollator;
 import java.util.*;
 
 public class Alphabetizer implements IAlphabetizer {
@@ -8,8 +10,18 @@ public class Alphabetizer implements IAlphabetizer {
 
     @Override
     public ArrayList<String> sort(ArrayList<String> csStmt) {
-        // TODO Auto-generated method stub
-        return null;
+        String rules = ("<'a '< a < 'A '< A < 'b ' < b < 'B ' < B < 'c ' < c < 'C ' < C < 'd ' < d < 'D ' < D < 'e ' < e < 'E ' < E < 'f ' < f < 'F ' < F < 'g ' < g < 'G ' < G < 'h ' < h "
+                + "< 'H ' < H < 'i ' < i < 'I ' < I < 'j ' < j < 'J ' < J < 'k ' < k < 'K ' < K < 'l ' < l < 'L ' < L < 'm ' < m < 'M '< M < 'n ' < n < 'N ' < N < 'o ' < o < 'O ' < O "
+                + "< 'p ' < p < 'P ' < P < 'q ' < q < 'Q ' < Q < 'r ' < r < 'R ' < R < 's ' < s < 'S ' < S < 't ' < t < 'T ' < T < 'u ' < u < 'U ' < U < 'v ' < v < 'V ' < V < 'w ' < w"
+                + "< 'W ' < W < 'x ' < x < 'X ' < X < 'y ' < y < 'Y ' < Y < 'z ' < z < 'Z ' < Z");
+
+        try {
+            RuleBasedCollator collator = new RuleBasedCollator(rules);
+            Collections.sort(csStmt, collator);
+        } catch (ParseException pe) {
+        }
+
+        return csStmt;
     }
 
 }
