@@ -1,10 +1,13 @@
 package model;
 import java.util.*;
 
+import view.Panel;
+
 public class Input implements IInput {
 
     private ArrayList<String> inputStmt;
     private int priority = 1;
+    private Panel panel;
 
     public Input() {
     }
@@ -32,9 +35,7 @@ public class Input implements IInput {
     public void splitInput(String stringStmt) {
         inputStmt = new ArrayList<>(Arrays.asList(stringStmt.split("\\r?\\n|\\r")));
         
-    }
+    } 
     
         
-    }
-
 }
