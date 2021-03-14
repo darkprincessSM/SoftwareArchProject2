@@ -30,9 +30,6 @@ public class Starter {
         window.setVisible(true);
 
         window.setResizable(false);
-=======
-        // window.setResizable(false);
-
 
     }
 

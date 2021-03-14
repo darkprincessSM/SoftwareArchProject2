@@ -58,4 +58,10 @@ public class Data implements IData {
 
     }
 
+    @Override
+    public File getNoiseBank() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
 }

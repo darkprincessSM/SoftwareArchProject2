@@ -7,10 +7,11 @@ import javax.swing.JTextField;
 
 public class Output implements IOutput {
 
-    Panel panel;
-    JTextField speedBox;
+    private Panel panel;
+    //private JTextField speedBox;
 
     public Output(long time, Panel panel) {
+        this.panel = panel;
         printPerformance(time);
     }
 
@@ -22,8 +23,7 @@ public class Output implements IOutput {
     @Override
     public void printPerformance(long time) {
         String timeString = String.valueOf(time);
-        speedBox = panel.getSpeedBox();
-        speedBox.setText(timeString);
+        panel.getSpeedBox().setText(timeString);
         System.out.println(time);
     }
 
