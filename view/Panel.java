@@ -6,6 +6,7 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.*;
 
+import controller.GUIActionListener;
 import model.MasterControl;
 public class Panel {
 
@@ -64,7 +65,7 @@ public class Panel {
         textPanel.setPreferredSize(new Dimension(1027, 590));
 
         Border loweredbeveled = BorderFactory.createBevelBorder(BevelBorder.LOWERED);
-        //GUIActionListener listener = new GUIActionListener(this);
+        GUIActionListener listener = new GUIActionListener(this);
 
         // area for entering input phrases
         textPanel.add(inputPanel, BorderLayout.NORTH);
@@ -86,9 +87,9 @@ public class Panel {
         inputScrollPane.setPreferredSize(new Dimension(334, 527));
         inputPanel.add(blankLabel);
         inputPanel.add(inputButton);
-        //inputButton.addActionListener(listener);
+        inputButton.addActionListener(listener);
         inputPanel.add(clearButton);
-        //clearButton.addActionListener(listener);
+        clearButton.addActionListener(listener);
 
         // displaying the middle step
         intermediatePanel.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -145,10 +146,10 @@ public class Panel {
         shiftButton.setSelected(true);
         shiftButton.setBackground(Color.gray);
         shiftButton.setForeground(Color.black);
-        //shiftButton.addActionListener(listener);
+        shiftButton.addActionListener(listener);
         alphaButton.setBackground(Color.gray);
         alphaButton.setForeground(Color.black);
-        //alphaButton.addActionListener(listener);
+        alphaButton.addActionListener(listener);
 
     }
 

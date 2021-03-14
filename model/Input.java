@@ -2,11 +2,14 @@ package model;
 
 import java.util.*;
 
+import view.Panel;
+
 public class Input implements IInput {
 
     private ArrayList<String> inputStmt;
     private ArrayList<String> noiseStmt;
     private int priority = 1;
+    private Panel panel;
 
     public Input() {
     }
@@ -33,11 +36,17 @@ public class Input implements IInput {
     @Override
     public void splitInput(String stringStmt) {
         inputStmt = new ArrayList<>(Arrays.asList(stringStmt.split("\\r?\\n|\\r")));
-    }
+
+        
+    } 
+    
+
+    
 
     @Override
     public void splitNoise(String stringStmt) {
         noiseStmt = new ArrayList<>(Arrays.asList(stringStmt.split("\\r?\\n|\\r")));
     }
+
 
 }

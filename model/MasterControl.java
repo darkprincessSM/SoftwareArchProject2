@@ -18,19 +18,32 @@ public class MasterControl {
     public Panel panel;
 
     public MasterControl(Panel panel) {
-        masterRun();
+        //masterRun();
+        printTime();
     }
 
  
 
     public void masterRun() {
-        startTime = System.currentTimeMillis();
-        //input = new Input();
-
-        System.out.println("how fast is this?");
-        endTime = System.currentTimeMillis();
-        speedTime = endTime - startTime;   
-        output = new Output(speedTime, panel);
+        
     }
 
+    public void setPanel(Panel panel) {
+        this.panel = panel;
+        
+    }
+
+    public void printTime() {
+        startTime = System.currentTimeMillis();
+        System.out.println(startTime + " start\n");
+        input = new Input();
+
+        //where all the modules instances will be sandwiched in
+
+        endTime = System.currentTimeMillis();
+        System.out.println(endTime + " end\n");
+        speedTime = endTime - startTime;   
+        System.out.println(speedTime + " milliseconds") ;
+        output = new Output(speedTime, panel);
+    }
 }

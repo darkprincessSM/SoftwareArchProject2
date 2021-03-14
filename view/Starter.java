@@ -28,7 +28,11 @@ public class Starter {
 
         window.pack();
         window.setVisible(true);
+
+        window.setResizable(false);
+=======
         // window.setResizable(false);
+
 
     }
 
