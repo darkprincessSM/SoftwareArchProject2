@@ -2,6 +2,7 @@ package model;
 import java.util.*;
 
 import view.Panel;
+import view.Starter;
 public class MasterControl {
 
     long startTime = 0;
@@ -15,28 +16,30 @@ public class MasterControl {
     private IAlphabetizer alphabetizer;
     private Timer timer;
     private IOutput output;
-    public Panel panel;
+    private Panel panel;
 
     public MasterControl(Panel panel) {
         //masterRun();
+        this.panel = panel;
         printTime();
     }
 
  
 
     public void masterRun() {
-        
+        data = new Data();
+        input = new Input();
     }
 
-    public void setPanel(Panel panel) {
-        this.panel = panel;
+    // public void setPanel(Panel panel) {
+    //     this.panel = panel;
         
-    }
+    // }
 
     public void printTime() {
         startTime = System.currentTimeMillis();
         System.out.println(startTime + " start\n");
-        input = new Input();
+        masterRun();
 
         //where all the modules instances will be sandwiched in
 
@@ -46,4 +49,8 @@ public class MasterControl {
         System.out.println(speedTime + " milliseconds") ;
         output = new Output(speedTime, panel);
     }
+
+   public IData getData() {
+       return data;
+   }
 }
