@@ -37,7 +37,7 @@ public class GUIActionListener implements ActionListener {
 
         } else if (source == panel.getInputButton()) {
             master = new MasterControl(panel);
-            master.setPanel(panel);
+            //master.setPanel(panel);
             if (isShift) {
                 input.setPriority(1);
             } else if (isSort) {

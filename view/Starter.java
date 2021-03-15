@@ -33,6 +33,9 @@ public class Starter {
 
     }
 
+    public Panel getPanel() {
+        return panel;
+    }
     // public void start(ArrayList<String> inputStmt) {
     // // TODO implement here
     // return null;

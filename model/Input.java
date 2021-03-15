@@ -40,9 +40,6 @@ public class Input implements IInput {
         
     } 
     
-
-    
-
     @Override
     public void splitNoise(String stringStmt) {
         noiseStmt = new ArrayList<>(Arrays.asList(stringStmt.split("\\r?\\n|\\r")));
