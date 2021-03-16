@@ -4,35 +4,39 @@ import java.util.*;
 
 public class Data implements IData {
 
-    public Data() {
+    public Data(MasterControl master) {
+        this.master = master;
     }
 
-    private ArrayList<String> inputStmt;
-    private ArrayList<String> csStmt;
-    private ArrayList<String> alphaStmt;
-    private ArrayList<String> outputStmt;
+    private MasterControl master;
+    private ArrayList<String> inputStmt = new ArrayList<String>();
+    private ArrayList<String> outputStmt = new ArrayList<String>();
+    //private ArrayList<String> csStmt;
+    //private ArrayList<String> alphaStmt;
+    private ArrayList<String> middleStmt;
 
     @Override
     public ArrayList<String> getInputStmt() {
-        // TODO Auto-generated method stub
-        return null;
+        return inputStmt;
     }
 
-    @Override
-    public ArrayList<String> getCaStmt() {
-        return csStmt;
-    }
+    // @Override
+    // public ArrayList<String> getCsStmt() {
+    //     return csStmt;
+    // }
 
-    @Override
-    public ArrayList<String> getAlphaStmt() {
-        return alphaStmt;
+    // @Override
+    // public ArrayList<String> getAlphaStmt() {
+    //     return alphaStmt;
 
-    }
+    // }
 
     @Override
     public ArrayList<String> getOutputStmt() {
         return outputStmt;
     }
+
+
 
     @Override
     public void setInputStmt() {
@@ -40,28 +44,52 @@ public class Data implements IData {
 
     }
 
-    @Override
-    public void setCaStmt() {
-        // TODO Auto-generated method stub
+    // @Override
+    // public void setCsStmt(ArrayList<String> csStmt) {
+    //     this.csStmt = csStmt;
 
-    }
+    // }
 
-    @Override
-    public void setAlphaStmt() {
-        // TODO Auto-generated method stub
+    // @Override
+    // public void setAlphaStmt(ArrayList<String> alphaStmt) {
+    //     this.alphaStmt = alphaStmt;
+    // }
 
-    }
-
-    @Override
-    public void setOutputStmt() {
-        // TODO Auto-generated method stub
-
-    }
+   
 
     @Override
     public File getNoiseBank() {
         // TODO Auto-generated method stub
         return null;
+    }
+
+    @Override
+    public void setOutputStmt(ArrayList<String> outputStmt) {
+        this.outputStmt = outputStmt;
+        
+    }
+
+    @Override
+    public ArrayList<String> getCsStmt() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public ArrayList<String> getAlphaStmt() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public ArrayList<String> getMiddleStmt() {
+        return middleStmt;
+    }
+
+    @Override
+    public void setMiddleStmt(ArrayList<String> middleStmt) {
+        this.middleStmt = middleStmt;
+        
     }
 
 }

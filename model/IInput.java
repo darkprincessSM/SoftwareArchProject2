@@ -1,3 +1,5 @@
+package model;
+
 import java.util.*;
 
 import view.Panel;
@@ -13,6 +15,10 @@ public interface IInput {
     public void printNoiseInput();
 
     public void setPriority(int num);
+
+    public void runFilter();
+
+    public int getLaps();
 
     
     

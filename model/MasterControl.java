@@ -8,27 +8,38 @@ public class MasterControl {
     long startTime = 0;
     long endTime = 0;
     long speedTime = 0;
-
-    private IData data;
-    private IInput input;
-    private ICircularShift circularShit;
-    private INoiseRemover noiseRemover;
-    private IAlphabetizer alphabetizer;
-    private Timer timer;
-    private IOutput output;
+    
+    private Starter starter;
     private Panel panel;
+    private MasterControl master;
+    private IData data = new Data(master);
+    private IInput input = new Input(master);
+    private ICircularShift circularShift = new CircularShift();
+    private INoiseRemover noiseRemover = new NoiseRemover();
+    private IAlphabetizer alphabetizer = new Alphabetizer();;
+    //private Timer timer;
+    private IOutput output = new Output(speedTime, panel);
+    
 
     public MasterControl(Panel panel) {
         //masterRun();
         this.panel = panel;
-        printTime();
+        //printTime();
     }
 
  
 
     public void masterRun() {
-        data = new Data();
-        input = new Input();
+        //data = new Data(master);
+        //input = new Input();
+        //circularShift = new CircularShift();
+        //alphabetizer = new Alphabetizer();
+        //noiseRemover = new NoiseRemover();
+        new MasterControl(starter.getPanel());
+        if (input.getLaps() == 1) {
+
+        }
+
     }
 
     // public void setPanel(Panel panel) {
@@ -52,5 +63,25 @@ public class MasterControl {
 
    public IData getData() {
        return data;
+   }
+
+   public MasterControl getMaster() {
+       return master;
+   }
+
+   public IInput getInput() {
+       return input;
+   }
+
+   public ICircularShift getCircularShift() {
+       return circularShift;
+   }
+
+   public IAlphabetizer getAlphabetizer() {
+       return alphabetizer;
+   }
+
+   public INoiseRemover getNoiseRemover() {
+       return noiseRemover;
    }
 }

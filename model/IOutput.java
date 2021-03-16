@@ -5,6 +5,7 @@ import view.Panel;
 public interface IOutput {
 
     public void print();
-    public void printPerformance(long time);       
+    public void printPerformance(long time); 
+    public String makeString(ArrayList<String> outputStmt);      
 
 }

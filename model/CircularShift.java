@@ -3,7 +3,7 @@ import java.util.*;
 
 public class CircularShift implements ICircularShift {
 
-    public CircularShift(ArrayList) {
+    public CircularShift() {
     }
 
     @Override

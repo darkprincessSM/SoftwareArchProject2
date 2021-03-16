@@ -15,7 +15,7 @@ public class GUIActionListener implements ActionListener {
     private Boolean isSort = Boolean.valueOf(false);
     private Boolean isShift = Boolean.valueOf(false);
     private MasterControl master;
-    private IInput input = new Input();
+    //private IInput input = new Input();
 
     public GUIActionListener(Panel panel) {
         this.panel = panel;
@@ -36,14 +36,14 @@ public class GUIActionListener implements ActionListener {
             isSort = true;
 
         } else if (source == panel.getInputButton()) {
-            master = new MasterControl(panel);
+            //master = new MasterControl(panel);
             //master.setPanel(panel);
             if (isShift) {
-                input.setPriority(1);
+                master.getInput().setPriority(1);
             } else if (isSort) {
-                input.setPriority(2);                
+                master.getInput().setPriority(2);                
             }
-            input.transmitIn(panel.getInputArea().getText());
+            master.getInput().transmitIn(panel.getInputArea().getText());
             
         } else if (source == panel.getClearButton()) {
             panel.getInputArea().setText("");
@@ -51,5 +51,13 @@ public class GUIActionListener implements ActionListener {
             panel.getOutputArea().setText("");
         }
         
+    }
+
+    public IInput getInput() {
+        return input;
+    }
+
+    public MasterControl getMaster() {
+        return master;
     }
 }
