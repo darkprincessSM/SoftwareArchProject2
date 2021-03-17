@@ -1,3 +1,4 @@
+package model;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -31,6 +32,4 @@ public class NoiseRemover implements INoiseRemover {
         csStmt.removeAll(removeLines);
         return csStmt;
     }
-}
-
 }
