@@ -56,4 +56,9 @@ public class Input implements IInput {
         return inputStmt;
     }
 
+    @Override
+    public int getPriority() {
+        return priority;
+    }
+
 }

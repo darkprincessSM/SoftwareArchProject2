@@ -20,6 +20,8 @@ public interface IInput {
 
     public ArrayList<String> getStmt();
 
+    public int getPriority();
+
     public void setPriority(int num);
 
 }

@@ -1,4 +1,5 @@
 package model;
+
 import java.io.File;
 import java.util.*;
 
@@ -11,11 +12,11 @@ public class Data implements IData {
     private ArrayList<String> csStmt;
     private ArrayList<String> alphaStmt;
     private ArrayList<String> outputStmt;
+    private ArrayList<String> noiseStmt;
 
     @Override
     public ArrayList<String> getInputStmt() {
-        // TODO Auto-generated method stub
-        return null;
+        return inputStmt;
     }
 
     @Override
@@ -35,33 +36,36 @@ public class Data implements IData {
     }
 
     @Override
-    public void setInputStmt() {
+    public void setInputStmt(ArrayList<String> inputStmt) {
+        this.inputStmt = inputStmt;
+
+    }
+
+    @Override
+    public void setCaStmt(ArrayList<String> csStmt) {
+        this.csStmt = csStmt;
+
+    }
+
+    @Override
+    public void setAlphaStmt(ArrayList<String> alphaStmt) {
+        this.alphaStmt = alphaStmt;
+    }
+
+    @Override
+    public void setOutputStmt(ArrayList<String> outputStmt) {
+        this.outputStmt = outputStmt;
+    }
+
+    @Override
+    public void setNoiseStmt(ArrayList<String> noiseStmt) {
         // TODO Auto-generated method stub
 
     }
 
     @Override
-    public void setCaStmt() {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void setAlphaStmt() {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void setOutputStmt() {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public File getNoiseBank() {
-        // TODO Auto-generated method stub
-        return null;
+    public ArrayList<String> getNoiseStmt() {
+        return noiseStmt;
     }
 
 }

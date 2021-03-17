@@ -6,9 +6,6 @@ import java.util.*;
 
 public class Alphabetizer implements IAlphabetizer {
 
-    public Alphabetizer() {
-    }
-
     @Override
     public ArrayList<String> sort(ArrayList<String> csStmt) {
         String rules = ("<'a '< a < 'A '< A < 'b ' < b < 'B ' < B < 'c ' < c < 'C ' < C < 'd ' < d < 'D ' < D < 'e ' < e < 'E ' < E < 'f ' < f < 'F ' < F < 'g ' < g < 'G ' < G < 'h ' < h "

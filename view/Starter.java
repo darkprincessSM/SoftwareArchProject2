@@ -1,9 +1,7 @@
 package view;
 
 import model.MasterControl;
-
 import java.util.ArrayList;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
@@ -25,10 +23,8 @@ public class Starter {
         System.out.println("\nStarting:\n");
         Panel panel = new Panel(window);
         panel.init();
-
         window.pack();
         window.setVisible(true);
-
         window.setResizable(true);
 
     }
@@ -36,9 +32,5 @@ public class Starter {
     public Panel getPanel() {
         return panel;
     }
-    // public void start(ArrayList<String> inputStmt) {
-    // // TODO implement here
-    // return null;
-    // }
 
 }

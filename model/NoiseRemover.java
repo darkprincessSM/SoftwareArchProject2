@@ -1,7 +1,5 @@
 package model;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.*;
 
 public class NoiseRemover implements INoiseRemover {
