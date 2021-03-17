@@ -1,8 +1,10 @@
 package model;
 
-import java.util.*;
-
+// import java.util.*;
+import model.IInput;
 import view.Panel;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Input implements IInput {
 
@@ -11,19 +13,14 @@ public class Input implements IInput {
     private int priority = 1;
     private Panel panel;
 
-    public Input() {
-    }
-
     // for testing
     @Override
     public void printNoiseInput() {
-        System.out.println(noiseStmt);
 
     }
 
     @Override
     public void printStmt() {
-        System.out.println(inputStmt);
     }
 
     @Override
@@ -33,22 +30,30 @@ public class Input implements IInput {
     }
 
     @Override
-    public void transmitIn(String stringStmt, String noiseStmt) {
+    public void transmitIn(String stringStmt, String noise) {
         // Transmit in from GUI
         splitInput(stringStmt);
-        splitInput(noiseStmt);
-        System.out.println(priority);
+        splitNoise(noise);
     }
 
     @Override
     public void splitInput(String stringStmt) {
         inputStmt = new ArrayList<>(Arrays.asList(stringStmt.split("\\r?\\n|\\r")));
-
     }
 
     @Override
-    public void splitNoise(String stringStmt) {
-        noiseStmt = new ArrayList<>(Arrays.asList(stringStmt.split("\\r?\\n|\\r")));
+    public void splitNoise(String noise) {
+        noiseStmt = new ArrayList<>(Arrays.asList(noise.split("\\r?\\n|\\r")));
+    }
+
+    @Override
+    public ArrayList<String> getNoise() {
+        return noiseStmt;
+    }
+
+    @Override
+    public ArrayList<String> getStmt() {
+        return inputStmt;
     }
 
 }

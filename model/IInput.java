@@ -16,6 +16,10 @@ public interface IInput {
 
     public void printStmt();
 
+    public ArrayList<String> getNoise();
+
+    public ArrayList<String> getStmt();
+
     public void setPriority(int num);
 
 }

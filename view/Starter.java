@@ -22,7 +22,7 @@ public class Starter {
         window.setLocation(400, 100);
         // window.setIconImage(pipePic.getImage());
         window.setTitle("KWIC: Shared Data & OO");
-
+        System.out.println("\nStarting:\n");
         Panel panel = new Panel(window);
         panel.init();
 
