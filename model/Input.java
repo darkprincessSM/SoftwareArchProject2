@@ -14,10 +14,16 @@ public class Input implements IInput {
     public Input() {
     }
 
+    // for testing
     @Override
     public void printNoiseInput() {
-        // TODO Auto-generated method stub
+        System.out.println(noiseStmt);
 
+    }
+
+    @Override
+    public void printStmt() {
+        System.out.println(inputStmt);
     }
 
     @Override
@@ -27,9 +33,10 @@ public class Input implements IInput {
     }
 
     @Override
-    public void transmitIn(String stringStmt) {
+    public void transmitIn(String stringStmt, String noiseStmt) {
         // Transmit in from GUI
         splitInput(stringStmt);
+        splitInput(noiseStmt);
         System.out.println(priority);
     }
 
@@ -37,13 +44,11 @@ public class Input implements IInput {
     public void splitInput(String stringStmt) {
         inputStmt = new ArrayList<>(Arrays.asList(stringStmt.split("\\r?\\n|\\r")));
 
-        
-    } 
-    
+    }
+
     @Override
     public void splitNoise(String stringStmt) {
         noiseStmt = new ArrayList<>(Arrays.asList(stringStmt.split("\\r?\\n|\\r")));
     }
-
 
 }

@@ -10,7 +10,7 @@ import model.Input;
 import model.MasterControl;
 
 public class GUIActionListener implements ActionListener {
-    
+
     private Panel panel;
     private Boolean isSort = Boolean.valueOf(false);
     private Boolean isShift = Boolean.valueOf(false);
@@ -37,19 +37,20 @@ public class GUIActionListener implements ActionListener {
 
         } else if (source == panel.getInputButton()) {
             master = new MasterControl(panel);
-            //master.setPanel(panel);
+            // master.setPanel(panel);
             if (isShift) {
                 input.setPriority(1);
             } else if (isSort) {
-                input.setPriority(2);                
+                input.setPriority(2);
             }
-            input.transmitIn(panel.getInputArea().getText());
-            
+            input.transmitIn(panel.getInputArea().getText(), panel.getNoiseArea().getText());
+            master.masterRun();
+
         } else if (source == panel.getClearButton()) {
             panel.getInputArea().setText("");
             panel.getIntermediateArea().setText("");
             panel.getOutputArea().setText("");
         }
-        
+
     }
 }
