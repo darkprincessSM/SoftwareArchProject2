@@ -23,6 +23,8 @@ public class CircularShift implements ICircularShift {
                 oldLine = newLine;
                 newLine = "";
             }
+            // added a space between sentences, thought maybe it would be easier to read
+            shiftedStmt.add("\n");
         }
         return shiftedStmt;
     }

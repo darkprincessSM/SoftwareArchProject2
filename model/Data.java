@@ -12,7 +12,6 @@ public class Data implements IData {
     private ArrayList<String> csStmt;
     private ArrayList<String> alphaStmt;
     private ArrayList<String> outputStmt;
-    private ArrayList<String> noiseStmt;
 
     @Override
     public ArrayList<String> getInputStmt() {
@@ -55,17 +54,6 @@ public class Data implements IData {
     @Override
     public void setOutputStmt(ArrayList<String> outputStmt) {
         this.outputStmt = outputStmt;
-    }
-
-    @Override
-    public void setNoiseStmt(ArrayList<String> noiseStmt) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public ArrayList<String> getNoiseStmt() {
-        return noiseStmt;
     }
 
 }

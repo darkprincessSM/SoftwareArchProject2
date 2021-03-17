@@ -21,10 +21,12 @@ public class NoiseRemover implements INoiseRemover {
 
         String firstWord;
         for (var s : csStmt) {
+            s.trim();
             firstWord = s.substring(0, s.indexOf(" "));
             for (var w : noise) {
-                if (firstWord.toUpperCase().equals(w))
+                if (firstWord.equalsIgnoreCase(w)) {
                     removeLines.add(s);
+                }
             }
         }
         csStmt.removeAll(removeLines);

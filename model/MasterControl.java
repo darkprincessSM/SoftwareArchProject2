@@ -32,18 +32,19 @@ public class MasterControl {
         data = new Data();
         circularShift = new CircularShift();
         alphabetizer = new Alphabetizer();
+        noiseRemover = new NoiseRemover();
 
-        data.setNoiseStmt(input.getNoise());
-        data.setInputStmt(input.getStmt());
         ArrayList<String> sortedArray = new ArrayList<String>();
         ArrayList<String> shiftedArray = new ArrayList<String>();
+        ArrayList<String> removed = new ArrayList<String>();
         // shifting 1 , sorting 2
-        System.out.println(input.getPriority());
+        noiseRemover.readNoise(input.getNoise());
+        removed = noiseRemover.removeNoise(input.getStmt());
+        data.setInputStmt(removed);
+
         if (input.getPriority() == 1) { // Shifter first
             // mid output
-            System.out.println(data.getInputStmt());
             shiftedArray = circularShift.shift(data.getInputStmt());
-            System.out.println(shiftedArray);
             data.setCaStmt(shiftedArray);
             output.print(data.getCaStmt());
             // final output
@@ -53,12 +54,12 @@ public class MasterControl {
 
         } else if (input.getPriority() == 2) { // Sorter first
             // mid output
-            sortedArray = alphabetizer.sort(shiftedArray);
+            sortedArray = alphabetizer.sort(data.getInputStmt());
             data.setAlphaStmt(sortedArray);
             output.print(data.getAlphaStmt());
 
             // final output
-            shiftedArray = circularShift.shift(data.getInputStmt());
+            shiftedArray = circularShift.shift(sortedArray);
             data.setCaStmt(shiftedArray);
             output.print(data.getCaStmt());
         }

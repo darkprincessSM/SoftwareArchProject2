@@ -16,12 +16,8 @@ public interface IData {
 
     public ArrayList<String> getAlphaStmt();
 
-    public ArrayList<String> getNoiseStmt();
-
     public ArrayList<String> getOutputStmt();
 
     public void setInputStmt(ArrayList<String> input);
-
-    public void setNoiseStmt(ArrayList<String> noise);
 
 }
