@@ -1,10 +1,11 @@
+package model;
 
 import java.util.*;
 
 public class CircularShift implements ICircularShift {
 
-    public CircularShift(ArrayList) {
-    }
+    // public CircularShift(ArrayList) {
+    // }
 
     @Override
     public ArrayList<String> shift(ArrayList<String> inputStmt) {

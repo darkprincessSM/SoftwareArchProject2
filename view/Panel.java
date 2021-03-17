@@ -8,10 +8,11 @@ import javax.swing.border.*;
 
 import controller.GUIActionListener;
 import model.MasterControl;
+
 public class Panel {
 
     private JFrame window;
-   
+
     private JTextArea inputArea = new JTextArea(5, 10);
     private JTextArea intermediateArea = new JTextArea(5, 10);
     private JTextArea outputArea = new JTextArea(5, 10);
@@ -22,7 +23,7 @@ public class Panel {
     private JRadioButton shiftButton = new JRadioButton("Circular Shift");
     private JButton inputButton = new JButton("Enter");
     private JButton clearButton = new JButton("Clear");
-    
+
     public Panel(JFrame window) {
         this.window = window;
     }
@@ -45,10 +46,11 @@ public class Panel {
         titlePanel.add(titleLabel);
 
         JLabel noiseLabel = new JLabel("                 Noise Words: ");
+        noiseArea.setText("a\nan\nthe\nand\nor\nof\nto\nbe\nis\nin\nout\nby\nas\nat\noff");
         titlePanel.add(noiseLabel);
         titlePanel.add(noiseArea);
         JScrollPane noiseScrollPane = new JScrollPane(noiseArea);
-        //noiseScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        // noiseScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         titlePanel.add(noiseScrollPane);
         noiseArea.setEditable(true);
         noiseArea.setLineWrap(false);
@@ -82,12 +84,12 @@ public class Panel {
         inputScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         inputPanel.add(inputScrollPane);
         inputArea.setEditable(true);
-        inputArea.setLineWrap(false);        
+        inputArea.setLineWrap(false);
         inputScrollPane.setBorder(bevelBorder);
         inputScrollPane.setPreferredSize(new Dimension(334, 527));
         inputPanel.add(blankLabel);
-        inputPanel.add(inputButton);
-        inputButton.addActionListener(listener);
+        // inputPanel.add(inputButton);
+        // inputButton.addActionListener(listener);
         inputPanel.add(clearButton);
         clearButton.addActionListener(listener);
 
@@ -141,6 +143,8 @@ public class Panel {
         priorityPanel.setBorder(titledPriorityBorder);
         priorityPanel.setBackground(Color.gray);
         priorityPanel.setForeground(Color.white);
+        priorityPanel.add(inputButton);
+        inputButton.addActionListener(listener);
         priorityPanel.add(shiftButton);
         priorityPanel.add(alphaButton);
         shiftButton.setSelected(true);
@@ -166,7 +170,7 @@ public class Panel {
     }
 
     public JTextArea getNoiseArea() {
-       return noiseArea;
+        return noiseArea;
     }
 
     public JTextField getSpeedBox() {
@@ -189,6 +193,4 @@ public class Panel {
         return inputButton;
     }
 
-    
-    
 }
