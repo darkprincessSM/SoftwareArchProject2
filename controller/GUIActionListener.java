@@ -44,7 +44,7 @@ public class GUIActionListener implements ActionListener {
                 input.setPriority(2);
             }
             input.transmitIn(panel.getInputArea().getText(), panel.getNoiseArea().getText());
-            master.masterRun();
+            master.masterRun(input);
 
         } else if (source == panel.getClearButton()) {
             panel.getInputArea().setText("");
