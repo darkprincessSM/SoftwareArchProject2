@@ -7,6 +7,7 @@ public class NoiseRemover implements INoiseRemover {
     private ArrayList<String> noise;
 
     public NoiseRemover() {
+        //
     }
 
     @Override

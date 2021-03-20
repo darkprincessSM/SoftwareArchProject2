@@ -4,13 +4,13 @@ import java.util.*;
 
 public interface IData {
 
-    public void setCaStmt(ArrayList<String> circ);
+    public void setCsStmt(ArrayList<String> circ);
 
     public void setAlphaStmt(ArrayList<String> alpha);
 
     public void setOutputStmt(ArrayList<String> output);
 
-    public ArrayList<String> getCaStmt();
+    public ArrayList<String> getCsStmt();
 
     public ArrayList<String> getInputStmt();
 

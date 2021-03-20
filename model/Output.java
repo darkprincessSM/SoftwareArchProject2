@@ -18,6 +18,10 @@ public class Output implements IOutput {
         printPerformance(time);
     }
 
+    public Output() {
+        
+    }
+
     @Override
     public void print(ArrayList<String> stmt) {
         String stringStmt = String.join("\n", stmt);

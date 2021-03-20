@@ -6,6 +6,7 @@ import java.util.*;
 public class Data implements IData {
 
     public Data() {
+        //
     }
 
     private ArrayList<String> inputStmt;
@@ -19,7 +20,7 @@ public class Data implements IData {
     }
 
     @Override
-    public ArrayList<String> getCaStmt() {
+    public ArrayList<String> getCsStmt() {
         return csStmt;
     }
 
@@ -41,7 +42,7 @@ public class Data implements IData {
     }
 
     @Override
-    public void setCaStmt(ArrayList<String> csStmt) {
+    public void setCsStmt(ArrayList<String> csStmt) {
         this.csStmt = csStmt;
 
     }

@@ -16,11 +16,12 @@ public class Input implements IInput {
     // for testing
     @Override
     public void printNoiseInput() {
-
+        ///
     }
 
     @Override
     public void printStmt() {
+        ///
     }
 
     @Override
@@ -39,6 +40,7 @@ public class Input implements IInput {
     @Override
     public void splitInput(String stringStmt) {
         inputStmt = new ArrayList<>(Arrays.asList(stringStmt.split("\\r?\\n|\\r")));
+        
     }
 
     @Override
@@ -59,6 +61,11 @@ public class Input implements IInput {
     @Override
     public int getPriority() {
         return priority;
+    }
+
+    @Override
+    public void setStmt(ArrayList<String> inputStmt) {
+        this.inputStmt = inputStmt;
     }
 
 }

@@ -33,6 +33,7 @@ public class MasterControl {
         circularShift = new CircularShift();
         alphabetizer = new Alphabetizer();
         noiseRemover = new NoiseRemover();
+        output = new Output();
 
         ArrayList<String> sortedArray = new ArrayList<String>();
         ArrayList<String> shiftedArray = new ArrayList<String>();
@@ -45,8 +46,8 @@ public class MasterControl {
         if (input.getPriority() == 1) { // Shifter first
             // mid output
             shiftedArray = circularShift.shift(data.getInputStmt());
-            data.setCaStmt(shiftedArray);
-            output.print(data.getCaStmt());
+            data.setCsStmt(shiftedArray);
+            output.print(data.getCsStmt());
             // final output
             sortedArray = alphabetizer.sort(shiftedArray);
             data.setAlphaStmt(sortedArray);
@@ -60,8 +61,8 @@ public class MasterControl {
 
             // final output
             shiftedArray = circularShift.shift(sortedArray);
-            data.setCaStmt(shiftedArray);
-            output.print(data.getCaStmt());
+            data.setCsStmt(shiftedArray);
+            output.print(data.getCsStmt());
         }
         // send to output actions go here
     }
