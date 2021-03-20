@@ -16,7 +16,7 @@ public class Output implements IOutput {
 
     public Output(long time, Panel panel) {
         this.panel = panel;
-        //printPerformance(time);
+        printPerformance(time);
     }
 
     public Output(Panel panel) {

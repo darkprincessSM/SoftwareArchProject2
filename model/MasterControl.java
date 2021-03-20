@@ -24,10 +24,13 @@ public class MasterControl {
     public MasterControl(Panel panel) {
         // masterRun();
         this.panel = panel;
-        printTime();
+        //printTime();
     }
 
     public void masterRun(IInput input) {
+        startTime = System.currentTimeMillis();
+        System.out.println(startTime + " start\n");
+        
         this.input = input;
         data = new Data();
         circularShift = new CircularShift();
@@ -72,20 +75,24 @@ public class MasterControl {
             output.print(removed);
         }
         // send to output actions go here
-    }
-
-    public void printTime() {
-        startTime = System.currentTimeMillis();
-        System.out.println(startTime + " start\n");
-        // masterRun();
-        // where all the modules instances will be sandwiched in
-
         endTime = System.currentTimeMillis();
         System.out.println(endTime + " end\n");
         speedTime = endTime - startTime;
         System.out.println(speedTime + " milliseconds");
         output = new Output(speedTime, panel);
     }
+
+    // public void printTime() {
+    //     startTime = System.currentTimeMillis();
+    //     System.out.println(startTime + " start\n");
+    //     // masterRun();
+       
+    //     endTime = System.currentTimeMillis();
+    //     System.out.println(endTime + " end\n");
+    //     speedTime = endTime - startTime;
+    //     System.out.println(speedTime + " milliseconds");
+    //     output = new Output(speedTime, panel);
+    // }
 
     public IData getData() {
         return data;

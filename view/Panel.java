@@ -62,6 +62,7 @@ public class Panel {
         titlePanel.add(speedBox);
         speedBox.setPreferredSize(new Dimension(150, 27));
         speedBox.setBorder(bevelBorder);
+        speedBox.setEditable(false);
 
         cp.add(BorderLayout.CENTER, textPanel); // text panel consists of each indiv. text panel
         textPanel.setPreferredSize(new Dimension(1027, 590));
