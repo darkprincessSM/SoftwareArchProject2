@@ -33,23 +33,28 @@ public class MasterControl {
         circularShift = new CircularShift();
         alphabetizer = new Alphabetizer();
         noiseRemover = new NoiseRemover();
-        output = new Output();
+        output = new Output(panel);
 
         ArrayList<String> sortedArray = new ArrayList<String>();
         ArrayList<String> shiftedArray = new ArrayList<String>();
         ArrayList<String> removed = new ArrayList<String>();
         // shifting 1 , sorting 2
-        noiseRemover.readNoise(input.getNoise());
-        removed = noiseRemover.removeNoise(input.getStmt());
-        data.setInputStmt(removed);
+        // noiseRemover.readNoise(input.getNoise());        
+        // removed = noiseRemover.removeNoise(input.getStmt());        
+        // data.setInputStmt(removed);
+
+        data.setInputStmt(input.getStmt());
+        
 
         if (input.getPriority() == 1) { // Shifter first
             // mid output
-            shiftedArray = circularShift.shift(data.getInputStmt());
-            data.setCsStmt(shiftedArray);
-            output.print(data.getCsStmt());
+            shiftedArray = circularShift.shift(data.getInputStmt());            
+            noiseRemover.readNoise(input.getNoise());
+            removed = noiseRemover.removeNoise(shiftedArray);
+            data.setCsStmt(removed);
+            output.print(removed);
             // final output
-            sortedArray = alphabetizer.sort(shiftedArray);
+            sortedArray = alphabetizer.sort(data.getCsStmt());
             data.setAlphaStmt(sortedArray);
             output.print(data.getAlphaStmt());
 
@@ -61,8 +66,10 @@ public class MasterControl {
 
             // final output
             shiftedArray = circularShift.shift(sortedArray);
-            data.setCsStmt(shiftedArray);
-            output.print(data.getCsStmt());
+            noiseRemover.readNoise(input.getNoise());
+            removed = noiseRemover.removeNoise(shiftedArray);
+            data.setCsStmt(removed);
+            output.print(removed);
         }
         // send to output actions go here
     }

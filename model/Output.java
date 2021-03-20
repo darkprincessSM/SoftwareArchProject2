@@ -10,16 +10,17 @@ import javax.swing.JTextField;
 public class Output implements IOutput {
 
     private Panel panel;
+    private Starter starter;
     private IData data;
     private int count = 1;
 
     public Output(long time, Panel panel) {
         this.panel = panel;
-        printPerformance(time);
+        //printPerformance(time);
     }
 
-    public Output() {
-        
+    public Output(Panel panel) {
+        this.panel = panel;
     }
 
     @Override
