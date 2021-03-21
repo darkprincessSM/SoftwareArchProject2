@@ -1,0 +1,23 @@
+package model;
+
+import java.util.*;
+
+public interface IData {
+
+    public void setCsStmt(ArrayList<String> circ);
+
+    public void setAlphaStmt(ArrayList<String> alpha);
+
+    public void setOutputStmt(ArrayList<String> output);
+
+    public ArrayList<String> getCsStmt();
+
+    public ArrayList<String> getInputStmt();
+
+    public ArrayList<String> getAlphaStmt();
+
+    public ArrayList<String> getOutputStmt();
+
+    public void setInputStmt(ArrayList<String> input);
+
+}
