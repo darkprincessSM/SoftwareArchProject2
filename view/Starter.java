@@ -1,8 +1,5 @@
 package view;
 
-import model.MasterControl;
-import java.util.ArrayList;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class Starter {

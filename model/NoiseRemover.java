@@ -7,6 +7,7 @@ public class NoiseRemover implements INoiseRemover {
     private ArrayList<String> noise;
 
     public NoiseRemover() {
+        //
     }
 
     @Override
@@ -20,7 +21,11 @@ public class NoiseRemover implements INoiseRemover {
         ArrayList<String> removeLines = new ArrayList<String>();
 
         String firstWord;
-        for (var s : csStmt) {
+        for (var s : csStmt) {          
+            if (s.equals("\n")) {
+                removeLines.add(s);
+                continue;
+            }
             s.trim();
             firstWord = s.substring(0, s.indexOf(" "));
             for (var w : noise) {
@@ -28,8 +33,9 @@ public class NoiseRemover implements INoiseRemover {
                     removeLines.add(s);
                 }
             }
-        }
+        }        
         csStmt.removeAll(removeLines);
         return csStmt;
     }
+
 }

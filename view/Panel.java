@@ -1,13 +1,10 @@
 package view;
 
-import java.util.*;
-
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.*;
 
 import controller.GUIActionListener;
-import model.MasterControl;
 
 public class Panel {
 
@@ -62,6 +59,7 @@ public class Panel {
         titlePanel.add(speedBox);
         speedBox.setPreferredSize(new Dimension(150, 27));
         speedBox.setBorder(bevelBorder);
+        speedBox.setEditable(false);
 
         cp.add(BorderLayout.CENTER, textPanel); // text panel consists of each indiv. text panel
         textPanel.setPreferredSize(new Dimension(1027, 590));
@@ -88,9 +86,6 @@ public class Panel {
         inputScrollPane.setBorder(bevelBorder);
         inputScrollPane.setPreferredSize(new Dimension(334, 527));
         inputPanel.add(blankLabel);
-        // inputPanel.add(inputButton);
-        // inputButton.addActionListener(listener);
-        inputPanel.add(clearButton);
         clearButton.addActionListener(listener);
 
         // displaying the middle step
@@ -144,6 +139,7 @@ public class Panel {
         priorityPanel.setBackground(Color.gray);
         priorityPanel.setForeground(Color.white);
         priorityPanel.add(inputButton);
+        priorityPanel.add(clearButton);
         inputButton.addActionListener(listener);
         priorityPanel.add(shiftButton);
         priorityPanel.add(alphaButton);

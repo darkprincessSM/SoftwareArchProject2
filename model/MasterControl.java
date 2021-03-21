@@ -1,10 +1,7 @@
 package model;
 
 import java.util.*;
-import model.Input;
-import model.Data;
 import view.Panel;
-import view.Starter;
 
 public class MasterControl {
 
@@ -17,38 +14,39 @@ public class MasterControl {
     private ICircularShift circularShift;
     private INoiseRemover noiseRemover;
     private IAlphabetizer alphabetizer;
-    private Timer timer;
     private IOutput output;
     private Panel panel;
 
     public MasterControl(Panel panel) {
-        // masterRun();
         this.panel = panel;
-        printTime();
     }
 
     public void masterRun(IInput input) {
+        startTime = System.currentTimeMillis();
+        System.out.println(startTime + " start\n");
+
         this.input = input;
         data = new Data();
         circularShift = new CircularShift();
         alphabetizer = new Alphabetizer();
         noiseRemover = new NoiseRemover();
+        output = new Output(panel);
 
         ArrayList<String> sortedArray = new ArrayList<String>();
         ArrayList<String> shiftedArray = new ArrayList<String>();
         ArrayList<String> removed = new ArrayList<String>();
-        // shifting 1 , sorting 2
-        noiseRemover.readNoise(input.getNoise());
-        removed = noiseRemover.removeNoise(input.getStmt());
-        data.setInputStmt(removed);
+
+        data.setInputStmt(input.getStmt());
 
         if (input.getPriority() == 1) { // Shifter first
             // mid output
             shiftedArray = circularShift.shift(data.getInputStmt());
-            data.setCaStmt(shiftedArray);
-            output.print(data.getCaStmt());
+            noiseRemover.readNoise(input.getNoise());
+            removed = noiseRemover.removeNoise(shiftedArray);
+            data.setCsStmt(removed);
+            output.print(removed);
             // final output
-            sortedArray = alphabetizer.sort(shiftedArray);
+            sortedArray = alphabetizer.sort(data.getCsStmt());
             data.setAlphaStmt(sortedArray);
             output.print(data.getAlphaStmt());
 
@@ -60,18 +58,12 @@ public class MasterControl {
 
             // final output
             shiftedArray = circularShift.shift(sortedArray);
-            data.setCaStmt(shiftedArray);
-            output.print(data.getCaStmt());
+            noiseRemover.readNoise(input.getNoise());
+            removed = noiseRemover.removeNoise(shiftedArray);
+            data.setCsStmt(removed);
+            output.print(removed);
         }
         // send to output actions go here
-    }
-
-    public void printTime() {
-        startTime = System.currentTimeMillis();
-        System.out.println(startTime + " start\n");
-        // masterRun();
-        // where all the modules instances will be sandwiched in
-
         endTime = System.currentTimeMillis();
         System.out.println(endTime + " end\n");
         speedTime = endTime - startTime;
@@ -79,7 +71,4 @@ public class MasterControl {
         output = new Output(speedTime, panel);
     }
 
-    public IData getData() {
-        return data;
-    }
 }
