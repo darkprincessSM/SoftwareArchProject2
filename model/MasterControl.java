@@ -94,7 +94,7 @@ public class MasterControl {
     //     output = new Output(speedTime, panel);
     // }
 
-    public IData getData() {
-        return data;
-    }
+    // public IData getData() {
+    //     return data;
+    // }
 }

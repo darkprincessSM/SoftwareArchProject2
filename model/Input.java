@@ -1,7 +1,5 @@
 package model;
 
-// import java.util.*;
-import model.IInput;
 import view.Panel;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,18 +9,6 @@ public class Input implements IInput {
     private ArrayList<String> inputStmt;
     private ArrayList<String> noiseStmt;
     private int priority = 1;
-    private Panel panel;
-
-    // for testing
-    @Override
-    public void printNoiseInput() {
-        ///
-    }
-
-    @Override
-    public void printStmt() {
-        ///
-    }
 
     @Override
     public void setPriority(int priority) {

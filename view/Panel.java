@@ -89,8 +89,6 @@ public class Panel {
         inputScrollPane.setBorder(bevelBorder);
         inputScrollPane.setPreferredSize(new Dimension(334, 527));
         inputPanel.add(blankLabel);
-        // inputPanel.add(inputButton);
-        // inputButton.addActionListener(listener);
         inputPanel.add(clearButton);
         clearButton.addActionListener(listener);
 
