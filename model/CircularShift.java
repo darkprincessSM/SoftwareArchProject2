@@ -4,9 +4,6 @@ import java.util.*;
 
 public class CircularShift implements ICircularShift {
 
-    // public CircularShift(ArrayList) {
-    // }
-
     @Override
     public ArrayList<String> shift(ArrayList<String> inputStmt) {
         ArrayList<String> shiftedStmt = new ArrayList<String>();
@@ -26,6 +23,8 @@ public class CircularShift implements ICircularShift {
                 oldLine = newLine;
                 newLine = "";
             }
+            // added a space between sentences, thought maybe it would be easier to read
+            shiftedStmt.add("\n");
         }
         return shiftedStmt;
     }

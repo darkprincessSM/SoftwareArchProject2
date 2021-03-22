@@ -12,48 +12,69 @@ public class MasterControl {
     long endTime = 0;
     long speedTime = 0;
 
-    private IData data = new Data();
+    private IData data;
     private IInput input;
-    private ICircularShift circularShit;
+    private ICircularShift circularShift;
     private INoiseRemover noiseRemover;
     private IAlphabetizer alphabetizer;
-    private Timer timer;
     private IOutput output;
     private Panel panel;
 
     public MasterControl(Panel panel) {
-        // masterRun();
         this.panel = panel;
-        printTime();
     }
 
     public void masterRun(IInput input) {
+        startTime = System.currentTimeMillis();
+        //System.out.println(startTime + " start\n");
+        
         this.input = input;
         data = new Data();
-        System.out.println(input.getStmt());
-        System.out.println(input.getNoise());
-    }
+        circularShift = new CircularShift();
+        alphabetizer = new Alphabetizer();
+        noiseRemover = new NoiseRemover();
+        output = new Output(panel);
 
-    // public void setPanel(Panel panel) {
-    // this.panel = panel;
+        ArrayList<String> sortedArray = new ArrayList<String>();
+        ArrayList<String> shiftedArray = new ArrayList<String>();
+        ArrayList<String> removed = new ArrayList<String>();
+        // shifting 1 , sorting 2
+        // noiseRemover.readNoise(input.getNoise());        
+        // removed = noiseRemover.removeNoise(input.getStmt());        
+        // data.setInputStmt(removed);
 
-    // }
+        data.setInputStmt(input.getStmt());        
 
-    public void printTime() {
-        startTime = System.currentTimeMillis();
-        System.out.println(startTime + " start\n");
-        // masterRun();
+        if (input.getPriority() == 1) { // Shifter first
+            // mid output
+            shiftedArray = circularShift.shift(data.getInputStmt());            
+            noiseRemover.readNoise(input.getNoise());
+            removed = noiseRemover.removeNoise(shiftedArray);
+            data.setCsStmt(removed);
+            output.print(removed);
+            // final output
+            sortedArray = alphabetizer.sort(data.getCsStmt());
+            data.setAlphaStmt(sortedArray);
+            output.print(data.getAlphaStmt());
 
-        // where all the modules instances will be sandwiched in
+        } else if (input.getPriority() == 2) { // Sorter first
+            // mid output
+            sortedArray = alphabetizer.sort(data.getInputStmt());
+            data.setAlphaStmt(sortedArray);
+            output.print(data.getAlphaStmt());
 
+            // final output
+            shiftedArray = circularShift.shift(sortedArray);
+            noiseRemover.readNoise(input.getNoise());
+            removed = noiseRemover.removeNoise(shiftedArray);
+            data.setCsStmt(removed);
+            output.print(removed);
+        }
+        // send to output actions go here
         endTime = System.currentTimeMillis();
-        System.out.println(endTime + " end\n");
+        //System.out.println(endTime + " end\n");
         speedTime = endTime - startTime;
-        System.out.println(speedTime + " milliseconds");
+        //System.out.println(speedTime + " milliseconds");
         output = new Output(speedTime, panel);
-    }
-
-    public IData getData() {
-        return data;
     }
 }

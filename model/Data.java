@@ -1,10 +1,12 @@
 package model;
+
 import java.io.File;
 import java.util.*;
 
 public class Data implements IData {
 
     public Data() {
+        //
     }
 
     private ArrayList<String> inputStmt;
@@ -14,12 +16,11 @@ public class Data implements IData {
 
     @Override
     public ArrayList<String> getInputStmt() {
-        // TODO Auto-generated method stub
-        return null;
+        return inputStmt;
     }
 
     @Override
-    public ArrayList<String> getCaStmt() {
+    public ArrayList<String> getCsStmt() {
         return csStmt;
     }
 
@@ -35,33 +36,25 @@ public class Data implements IData {
     }
 
     @Override
-    public void setInputStmt() {
-        // TODO Auto-generated method stub
+    public void setInputStmt(ArrayList<String> inputStmt) {
+        this.inputStmt = inputStmt;
 
     }
 
     @Override
-    public void setCaStmt() {
-        // TODO Auto-generated method stub
+    public void setCsStmt(ArrayList<String> csStmt) {
+        this.csStmt = csStmt;
 
     }
 
     @Override
-    public void setAlphaStmt() {
-        // TODO Auto-generated method stub
-
+    public void setAlphaStmt(ArrayList<String> alphaStmt) {
+        this.alphaStmt = alphaStmt;
     }
 
     @Override
-    public void setOutputStmt() {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public File getNoiseBank() {
-        // TODO Auto-generated method stub
-        return null;
+    public void setOutputStmt(ArrayList<String> outputStmt) {
+        this.outputStmt = outputStmt;
     }
 
 }
