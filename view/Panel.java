@@ -7,8 +7,6 @@ import javax.swing.*;
 import javax.swing.border.*;
 
 import controller.GUIActionListener;
-import model.MasterControl;
-
 public class Panel {
 
     private JFrame window;

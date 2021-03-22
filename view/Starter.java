@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 
 public class Starter {
 
-    private Panel panel;
+    private Panel panel;    
 
     public Starter() {
         startGui();

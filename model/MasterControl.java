@@ -17,14 +17,11 @@ public class MasterControl {
     private ICircularShift circularShift;
     private INoiseRemover noiseRemover;
     private IAlphabetizer alphabetizer;
-    private Timer timer;
     private IOutput output;
     private Panel panel;
 
     public MasterControl(Panel panel) {
-        // masterRun();
         this.panel = panel;
-        //printTime();
     }
 
     public void masterRun(IInput input) {
@@ -81,20 +78,4 @@ public class MasterControl {
         System.out.println(speedTime + " milliseconds");
         output = new Output(speedTime, panel);
     }
-
-    // public void printTime() {
-    //     startTime = System.currentTimeMillis();
-    //     System.out.println(startTime + " start\n");
-    //     // masterRun();
-       
-    //     endTime = System.currentTimeMillis();
-    //     System.out.println(endTime + " end\n");
-    //     speedTime = endTime - startTime;
-    //     System.out.println(speedTime + " milliseconds");
-    //     output = new Output(speedTime, panel);
-    // }
-
-    // public IData getData() {
-    //     return data;
-    // }
 }

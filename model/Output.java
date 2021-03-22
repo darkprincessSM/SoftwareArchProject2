@@ -10,7 +10,7 @@ import javax.swing.JTextField;
 public class Output implements IOutput {
 
     private Panel panel;
-    private int count = 1;
+    private int count = 1;   
 
     public Output(long time, Panel panel) {
         this.panel = panel;
