@@ -26,7 +26,7 @@ public class MasterControl {
 
     public void masterRun(IInput input) {
         startTime = System.currentTimeMillis();
-        System.out.println(startTime + " start\n");
+        //System.out.println(startTime + " start\n");
         
         this.input = input;
         data = new Data();
@@ -43,8 +43,7 @@ public class MasterControl {
         // removed = noiseRemover.removeNoise(input.getStmt());        
         // data.setInputStmt(removed);
 
-        data.setInputStmt(input.getStmt());
-        
+        data.setInputStmt(input.getStmt());        
 
         if (input.getPriority() == 1) { // Shifter first
             // mid output
@@ -73,9 +72,9 @@ public class MasterControl {
         }
         // send to output actions go here
         endTime = System.currentTimeMillis();
-        System.out.println(endTime + " end\n");
+        //System.out.println(endTime + " end\n");
         speedTime = endTime - startTime;
-        System.out.println(speedTime + " milliseconds");
+        //System.out.println(speedTime + " milliseconds");
         output = new Output(speedTime, panel);
     }
 }
