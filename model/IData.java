@@ -1,23 +1,26 @@
 package model;
 
+import java.io.File;
 import java.util.*;
 
 public interface IData {
 
-    public void setCsStmt(ArrayList<String> circ);
-
-    public void setAlphaStmt(ArrayList<String> alpha);
-
-    public void setOutputStmt(ArrayList<String> output);
-
-    public ArrayList<String> getCsStmt();
-
     public ArrayList<String> getInputStmt();
+
+    public void setInputStmt();
+
+    public ArrayList<String> getCaStmt();
+
+    public void setCaStmt();
 
     public ArrayList<String> getAlphaStmt();
 
+    public void setAlphaStmt();
+
     public ArrayList<String> getOutputStmt();
 
-    public void setInputStmt(ArrayList<String> input);
+    public void setOutputStmt();
+
+    public File getNoiseBank();
 
 }

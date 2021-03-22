@@ -1,10 +1,12 @@
 package model;
 
-import java.util.ArrayList;
+import java.util.*;
+
+import view.Panel;
 
 public interface IOutput {
 
-    public void print(ArrayList<String> stmt);
+    public void print();
 
     public void printPerformance(long time);
 

@@ -53,7 +53,4 @@ public class GUIActionListener implements ActionListener {
         }
 
     }
-    public Panel getPanel() {
-        return panel;
-    }
 }

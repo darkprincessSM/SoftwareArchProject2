@@ -1,5 +1,7 @@
 package model;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 public class NoiseRemover implements INoiseRemover {
@@ -7,7 +9,6 @@ public class NoiseRemover implements INoiseRemover {
     private ArrayList<String> noise;
 
     public NoiseRemover() {
-        //
     }
 
     @Override
@@ -21,21 +22,14 @@ public class NoiseRemover implements INoiseRemover {
         ArrayList<String> removeLines = new ArrayList<String>();
 
         String firstWord;
-        for (var s : csStmt) {          
-            if (s.equals("\n")) {
-                removeLines.add(s);
-                continue;
-            }
-            s.trim();
+        for (var s : csStmt) {
             firstWord = s.substring(0, s.indexOf(" "));
             for (var w : noise) {
-                if (firstWord.equalsIgnoreCase(w)) {
+                if (firstWord.toUpperCase().equals(w))
                     removeLines.add(s);
-                }
             }
-        }        
+        }
         csStmt.removeAll(removeLines);
         return csStmt;
     }
-
 }
